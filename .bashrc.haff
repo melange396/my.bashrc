@@ -1,0 +1,22 @@
+# put this file in your home directory and append this line to .bashrc :
+# source ~/.bashrc.haff
+
+# if this is not an interactive shell, bail:
+[[ ${-} != *i* ]] && return
+
+mkdir /tmp/$USER > /dev/null 2>&1
+
+export PS1='\n[\d \t] bg:\j ex:$?\n\u@\h:\w \$ \[\033[00m\]'
+# ascii text color reference:
+# green   \[\033[01;32m\]
+# blue    \[\033[01;34m\]
+# regs    \[\033[00m\]
+
+echo
+uname -a
+echo
+uptime
+echo
+df
+echo
+screen -ls
